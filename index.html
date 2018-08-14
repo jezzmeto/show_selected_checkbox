@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en" >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Show_Selected_Channel</title>
+</head>
+
+<body>
+
+  <!-- ============== Check Box Items ============== -->
+<ul>
+	<div data-bind="foreach: products">
+	<input type="checkbox" data-bind="checked: isSelected, value: name"/>
+  <span data-bind="template: { name: 'product-template', data: $data }"></span>
+  </div>
+</ul>
+<!-- ============== Check Box Items ============== -->
+<table>
+  <tbody>
+    <tr>
+      Selected Items<br/>
+      <span data-bind="foreach: products">
+        <span data-bind="if: isSelected">
+        <span data-bind="template: { name: 'product-template', data: $data }"></span>
+
+        </span>
+      </span>
+
+    </tr>
+  </tbody>
+</table>
+
+<script type="text/html" id="product-template">
+
+	<label>
+    <strong><span data-bind="text:name"></span></strong>
+      <br>
+      <span data-bind="text:productType" class="productType"></span>
+  <span class="renewalDate">
+    <strong><span data-bind="text:renewalDate"></span>
+  </strong>
+  </span>
+  </label>
+
+</script>
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/knockout/3.4.0/knockout-min.js'></script>
+    <script  src="js/index.js"></script>
+</body>
+
+</html>
